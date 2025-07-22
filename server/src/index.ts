@@ -2,6 +2,7 @@ import express from "express";
 import { Server } from "socket.io";
 import http from "http";
 
+
 const app = express();
 const server = http.createServer(app);
 
@@ -14,12 +15,16 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
   console.log('🟢 New client connected:', socket.id);
-  socket.emit('receive_message', '🟢 New client connected.');
-  socket.emit('receive_message', `current client's count are ${io.engine.clientsCount}`);
+
+  setTimeout(() => {
+    socket.emit('receive_message', `Welcome! You are connected as ${socket.id}`);
+    socket.emit('receive_message', `active client's count ${io.engine.clientsCount}`);
+  }, 100);
+
+  socket.broadcast.emit('receive_message', `🟢 A new user has joined the chat.`);
 
   socket.on('send_message', (data) => {
-    console.log('Madhan', data);
-    socket.emit('receive_message from client', data);
+    socket.emit('receive_message', data);
   });
 
   socket.on('disconnect', () => {
@@ -28,9 +33,9 @@ io.on('connection', (socket) => {
 });
 
 setInterval(() => {
-  console.log('👥 Total Clients:', io.engine.clientsCount);
-  io.emit('receive_message', `current client's count are ${io.engine.clientsCount}`);
+  io.emit('receive_message', `active client's count ${io.engine.clientsCount}`);
 }, 10000);
+
 
 server.listen(4000, () => {
   console.log('🚀 Server running on http://localhost:4000');

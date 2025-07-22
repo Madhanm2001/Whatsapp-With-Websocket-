@@ -15,25 +15,20 @@ function App() {
   const [chat, setChat] = useState([{ msg: '', sender: '' }]);
   const [clientCount, setClientCount] = useState(0)
 
-  useEffect(() => {
-    const handleClientCount = (data: number) => {
-      console.log(data, "count");
-      setClientCount(data);
-    };
+ useEffect(() => {
 
-    const handleReceiveMessage = (data: string) => {
-      displayMessage(data, 'server');
-      console.log(chat);
-    };
+  const handleReceiveMessage = (data: string) => {
+    displayMessage(data, 'server');
+  };
 
-    socket.on('client_count', handleClientCount);
-    socket.on('receive_message', handleReceiveMessage);
+  socket.on('receive_message', handleReceiveMessage);
 
-    return () => {
-      socket.off('client_count', handleClientCount);
-      socket.off('receive_message', handleReceiveMessage);
-    };
-  }, []);
+  return () => {
+    socket.off('receive_message', handleReceiveMessage);
+  };
+}, []);
+
+
 
 
   const displayMessage = (msg: string, sender: string) => {
