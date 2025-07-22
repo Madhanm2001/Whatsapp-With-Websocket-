@@ -56,7 +56,7 @@ function App() {
           <div>
             <img src={profile} style={{ height: '50px', width: '50px', borderRadius: '100%', cursor: 'pointer' }} alt="" />
           </div>
-          <div>
+          <div className='mt-1'>
             <p className='text-white m-0' style={{ fontWeight: 600 }}>Mr.Maddy (you)</p>
             <p className='m-0' style={{ color: 'grey', fontSize: '12.5px' }}>Message Yourself</p>
           </div>
@@ -92,7 +92,7 @@ function App() {
                 }}
               />
               {/* <button className='btn btn-primary' onClick={sendMessage}>Send</button> */}
-              <img src={send} onClick={sendMessage} alt="" id='sendButton' />
+              {message&&<img src={send} onClick={sendMessage} alt="" id='sendButton' />}
             </div>
           </div>
 
