@@ -1,0 +1,61 @@
+body{
+  background-color: #1d1d1d;
+}
+#chatSpace{
+  background: url('./assets/images/IMG_8071.JPG');
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 2% 0 5% 0;
+}
+#Time{
+  font-size: small;
+}
+#doubleTick{
+  height: 15px;
+  width: 15px;
+  margin-top:2%;
+}
+.inputBox{
+  background-color: #1d1d1d;
+  border: none;
+  padding: 20px;
+  height: 50px;
+  width: 100%;
+  color: white;
+}
+.inputBoxWrap{
+  position: relative;
+}
+#inputBox{
+  position: fixed;
+  bottom: 10px;
+  width: 97%;
+  padding: 0 7px;
+  left: 1%;
+}
+#sendButton{
+  height: 45px;
+  width: 45px;
+  background-color: rgb(0, 116, 71);
+  padding: 10px;
+  border-radius: 100%;
+}
+/* @media (min-width:768px){
+  .inputBox{
+
+    width:54%;
+}
+}
+@media (min-width:992px){
+  .inputBox{
+
+    width:64%;
+}
+}
+@media (min-width:1100px){
+  .inputBox{
+
+    width:72%;
+}
+} */
