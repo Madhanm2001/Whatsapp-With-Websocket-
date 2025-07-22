@@ -54,7 +54,7 @@ function App() {
 
             <div className="d-flex gap-3 p-3 sticky-top" style={{backgroundColor:'#1d1d1d'}}>
               <div>
-                <img src={profile} style={{ height: '45px', width: '45px', borderRadius: '100%' }} alt="" />
+                <img src={profile} style={{ height: '50px', width: '50px', borderRadius: '100%',cursor:'pointer' }} alt="" />
               </div>
               <div>
                 <p className='text-white m-0' style={{ fontWeight: 600 }}>Mr.Maddy (you)</p>

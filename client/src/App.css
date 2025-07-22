@@ -6,7 +6,7 @@ body{
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 2% 0 5% 0;
+  padding: 2% 2.5% 5% 2.5%;
 }
 #Time{
   font-size: small;
@@ -23,6 +23,8 @@ body{
   height: 50px;
   width: 100%;
   color: white;
+  text-decoration: none;
+  outline: none;
 }
 .inputBoxWrap{
   position: relative;
@@ -40,6 +42,7 @@ body{
   background-color: rgb(0, 116, 71);
   padding: 10px;
   border-radius: 100%;
+  cursor: pointer;
 }
 /* @media (min-width:768px){
   .inputBox{
