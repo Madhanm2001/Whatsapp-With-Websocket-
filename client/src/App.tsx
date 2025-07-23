@@ -13,7 +13,6 @@ const socket = io('http://localhost:4000');
 function App() {
   const [message, setMessage] = useState('');
   const [chat, setChat] = useState([{ msg: '', sender: '' }]);
-  const [clientCount, setClientCount] = useState(0)
 
   useEffect(() => {
 
