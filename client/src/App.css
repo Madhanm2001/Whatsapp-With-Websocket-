@@ -26,19 +26,26 @@ body{
   text-decoration: none;
   outline: none;
 }
-.inputBoxWrap{
+#InputWrapTop{
   position: relative;
 }
-#inputBox{
+#inputBoxWrap{
+  position: fixed;
+  bottom: 10px;
+  width: 95%;
+  padding: 0 7px;
+}
+
+/* #inputBox{
   position: fixed;
   bottom: 10px;
   width: 97%;
   padding: 0 7px;
   left: 1%;
-}
+} */
 #sendButton{
-  height: 45px;
-  width: 45px;
+  height: 42px;
+  width: 42px;
   background-color: rgb(0, 116, 71);
   padding: 10px;
   border-radius: 100%;

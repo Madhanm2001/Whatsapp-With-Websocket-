@@ -56,9 +56,9 @@ function App() {
           <div>
             <img src={profile} style={{ height: '50px', width: '50px', borderRadius: '100%', cursor: 'pointer' }} alt="" />
           </div>
-          <div className='mt-1'>
-            <p className='text-white m-0' style={{ fontWeight: 600 }}>Mr.Maddy (you)</p>
-            <p className='m-0' style={{ color: 'grey', fontSize: '12.5px' }}>Message Yourself</p>
+          <div>
+            <p className='text-white m-0' style={{ fontWeight: 600,fontSize:'17px' }}>Mr.Maddy (you)</p>
+            <p className='m-0' style={{ color: 'grey', fontSize: '15px' }}>Message Yourself</p>
           </div>
         </div>
 
@@ -77,9 +77,9 @@ function App() {
           ))}
 
 
-
-          <div id='inputBoxWrap' className='px-3'>
-            <div id='inputBox' className='d-flex gap-2'>
+<div id='InputWrapTop'>
+<div id='inputBoxWrap'>
+            <div id='inputBox' style={{position:'relative'}}>
               <input
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -92,9 +92,11 @@ function App() {
                 }}
               />
               {/* <button className='btn btn-primary' onClick={sendMessage}>Send</button> */}
-              {message&&<img src={send} onClick={sendMessage} alt="" id='sendButton' />}
+              {message&&<img src={send} onClick={sendMessage} style={{position:'absolute',right:'5px',bottom:'4px'}} alt="" id='sendButton' />}
             </div>
           </div>
+</div>
+          
 
 
 
