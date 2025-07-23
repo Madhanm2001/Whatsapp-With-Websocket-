@@ -52,13 +52,13 @@ function App() {
       {/* <img src={bgImage} alt="" className='vh-100 d-none d-md-block' style={{borderLeft:'.5px white solid',borderRight:'.5px white solid'}}/> */}
       <div id='navBar' style={{ width: '100%' }}>
 
-        <div className="d-flex gap-3 p-3 sticky-top" style={{ backgroundColor: '#1d1d1d' }}>
+        <div className="d-flex gap-3 py-2 px-3 sticky-top" style={{ backgroundColor: '#1d1d1d' }}>
           <div>
             <img src={profile} style={{ height: '50px', width: '50px', borderRadius: '100%', cursor: 'pointer' }} alt="" />
           </div>
-          <div>
-            <p className='text-white m-0' style={{ fontWeight: 600,fontSize:'17px' }}>Mr.Maddy (you)</p>
-            <p className='m-0' style={{ color: 'grey', fontSize: '15px' }}>Message Yourself</p>
+          <div style={{marginTop:'2px'}}>
+            <p className='text-white m-0' style={{ fontWeight: 600,fontSize:'16px' }}>Mr.Maddy (you)</p>
+            <p className='m-0' style={{ color: 'grey', fontSize: '13px' }}>Message Yourself</p>
           </div>
         </div>
 
