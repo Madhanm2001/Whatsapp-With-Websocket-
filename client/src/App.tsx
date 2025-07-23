@@ -22,19 +22,19 @@ function App() {
 
     socket.on('receive_message', handleReceiveMessage);
 
+    const chatDiv = document.querySelector('#chatContain');
+    if (chatDiv){ 
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
     return () => {
       socket.off('receive_message', handleReceiveMessage);
     };
-  }, []);
-
-
-
+  }, [chat]);
 
   const displayMessage = (msg: string, sender: string) => {
     const CurrentMsg = { msg, sender };
     setChat(prev => [...prev, CurrentMsg]);
   };
-
 
   const sendMessage = () => {
     if (message.trim()) {
@@ -55,25 +55,28 @@ function App() {
           <div>
             <img src={profile} style={{ height: '50px', width: '50px', borderRadius: '100%', cursor: 'pointer' }} alt="" />
           </div>
-          <div style={{marginTop:'2px'}}>
+          <div style={{marginTop:'2.5px'}}>
             <p className='text-white m-0' style={{ fontWeight: 600,fontSize:'16px' }}>Mr.Maddy (you)</p>
             <p className='m-0' style={{ color: 'grey', fontSize: '13px' }}>Message Yourself</p>
           </div>
         </div>
 
         <div id='chatSpace'>
-
-          {chat.length > 1 && chat.map((data, i) => (
+<div id="chatContain">
+  {chat.length > 1 && chat.map((data, i) => (
             (data.msg && <div style={{ margin: '15px', display: 'flex', flexWrap: 'wrap', justifyContent: (data.sender == 'client' ? 'flex-end' : 'flex-start') }}>
-              <div key={i} style={{ color: 'white', backgroundColor: (data.sender == 'client' ? 'rgb(0, 116, 71)' : 'rgb(100, 100, 100)'), padding: '5px 10px', borderRadius: '10px', maxWidth: '80%', wordWrap: 'break-word', fontSize: '15px', gap: '5px' }}>
+              <div key={i} style={{ color: 'white', backgroundColor: (data.sender == 'client' ? 'rgb(0, 116, 71)' : 'rgb(36, 36, 36)'), padding: '5px 10px', borderRadius: '10px', maxWidth: '80%', wordWrap: 'break-word', fontSize: '15px', gap: '5px' }}>
                 <div style={{ wordWrap: 'break-word', paddingRight: '70px' }}>{data.msg}</div>
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' ,gap:'5px'}}>
                   <div id='Time'>10:30 AM</div>
                   <img src={doubleTick} id='doubleTick' alt="" />
                 </div>
               </div>
             </div>)
           ))}
+
+</div>
+          
 
 
 <div id='InputWrapTop'>

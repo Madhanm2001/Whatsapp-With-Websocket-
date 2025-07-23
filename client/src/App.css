@@ -1,13 +1,43 @@
 body{
   background-color: #1d1d1d;
 }
-#chatSpace{
+#chatSpace {
   background: url('./assets/images/IMG_8071.JPG');
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  padding: 2% 2.5% 5% 2.5%;
+  z-index: 0;
 }
+
+#chatSpace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(.8px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+#chatContain {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;   
+  padding: 3%;
+  z-index: 1;
+  position: relative;
+}
+
+#InputWrapTop {
+  z-index: 1;
+  position: relative;
+  padding: 10px 2.5%;
+}
+
 #Time{
   font-size: small;
 }
@@ -25,9 +55,6 @@ body{
   color: white;
   text-decoration: none;
   outline: none;
-}
-#InputWrapTop{
-  position: relative;
 }
 #inputBoxWrap{
   position: fixed;
