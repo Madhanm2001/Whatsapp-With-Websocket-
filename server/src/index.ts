@@ -6,19 +6,21 @@ import http from "http";
 const app = express();
 const server = http.createServer(app);
 
-const io = new Server(server, {
+const socketIO = new Server(server, {
   cors: {
     origin: 'http://localhost:5173',
     methods: ['GET', 'POST']
   }
 });
 
-io.on('connection', (socket) => {
+const selfTalkIONameSpace=socketIO.of('/selftalk-io')
+
+selfTalkIONameSpace.on('connection', (socket) => {
   console.log('🟢 New client connected:', socket.id);
 
   setTimeout(() => {
     socket.emit('receive_message', `Welcome! You are connected as ${socket.id}`);
-    socket.emit('receive_message', `active client's count ${io.engine.clientsCount}`);
+    socket.emit('receive_message', `active client's count ${socketIO.engine.clientsCount}`);
   }, 100);
 
   socket.broadcast.emit('receive_message', `🟢 A new user has joined the chat.`);
@@ -33,7 +35,7 @@ io.on('connection', (socket) => {
 });
 
 setInterval(() => {
-  io.emit('receive_message', `active client's count ${io.engine.clientsCount}`);
+  selfTalkIONameSpace.emit('receive_message', `active client's count ${socketIO.engine.clientsCount}`);
 }, 10000);
 
 

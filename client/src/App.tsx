@@ -8,7 +8,7 @@ import send from './assets/images/send.png'
 
 
 
-const socket = io('http://localhost:4000');
+const socket = io('http://localhost:4000/selftalk-io');
 
 function App() {
   const [message, setMessage] = useState('');
