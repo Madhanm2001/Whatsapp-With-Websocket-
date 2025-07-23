@@ -6,8 +6,6 @@ import profile from './assets/images/IMG_7885.JPG'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import send from './assets/images/send.png'
 
-
-
 const socket = io('http://localhost:4000/selftalk-io');
 
 function App() {

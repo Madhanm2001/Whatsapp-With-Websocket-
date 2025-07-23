@@ -35,7 +35,7 @@ selfTalkIONameSpace.on('connection', (socket) => {
 });
 
 setInterval(() => {
-  selfTalkIONameSpace.emit('receive_message', `active client's count ${socketIO.engine.clientsCount}`);
+  selfTalk.emit('receive_message', `active client's count ${socketIO.engine.clientsCount}`);
 }, 10000);
 
 
